@@ -6,12 +6,12 @@
 
 using namespace std;
 
-// Дата приобретения
+// Р”Р°С‚Р° РїСЂРёРѕР±СЂРµС‚РµРЅРёСЏ
 struct TDate
 {
 	int d, m, y;
 };
-// Элементы трансформатора
+// Р­Р»РµРјРµРЅС‚С‹ С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂР°
 struct TDetail
 {
 	int oil_tank;
@@ -21,7 +21,7 @@ struct TDetail
 	int secondary_winding_terminals;
 	int gas_relay;
 };
-// Трансформатор
+// РўСЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂ
 struct TTransform
 {
 	char name[35]; // '\0'
@@ -31,97 +31,97 @@ struct TTransform
 	TDate date;
 };
 
-// Пользовательские функции
+// РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ С„СѓРЅРєС†РёРё
 void CinTransform(TTransform& transform)
 {
-	cout << "Название Трансформатора --> ";
+	cout << "РќР°Р·РІР°РЅРёРµ РўСЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂР° --> ";
 	cin.getline(transform.name, 15);
 
-	cout << "Фирма изготовитель --> ";
+	cout << "Р¤РёСЂРјР° РёР·РіРѕС‚РѕРІРёС‚РµР»СЊ --> ";
 	cin.getline(transform.firma, 20);
 
-	cout << "Комплектация трансформатора всеми перечисленными деталями (либо 0 либо 1):" << endl;
-	cout << "Масляный бак --> ";
+	cout << "РљРѕРјРїР»РµРєС‚Р°С†РёСЏ С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂР° РІСЃРµРјРё РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹РјРё РґРµС‚Р°Р»СЏРјРё (Р»РёР±Рѕ 0 Р»РёР±Рѕ 1):" << endl;
+	cout << "РњР°СЃР»СЏРЅС‹Р№ Р±Р°Рє --> ";
 	cin >> transform.detail.oil_tank;
-	cout << "Первичная обмотка --> ";
+	cout << "РџРµСЂРІРёС‡РЅР°СЏ РѕР±РјРѕС‚РєР° --> ";
 	cin >> transform.detail.primary_winding;
-	cout << "Вторичная обмотка --> ";
+	cout << "Р’С‚РѕСЂРёС‡РЅР°СЏ РѕР±РјРѕС‚РєР° --> ";
 	cin >> transform.detail.secondary_winding;
-	cout << "Выводы первичной обмотки --> ";
+	cout << "Р’С‹РІРѕРґС‹ РїРµСЂРІРёС‡РЅРѕР№ РѕР±РјРѕС‚РєРё --> ";
 	cin >> transform.detail.conclusions_of_the_primary_winding;
-	cout << "Выводы вторичной обмотки --> ";
+	cout << "Р’С‹РІРѕРґС‹ РІС‚РѕСЂРёС‡РЅРѕР№ РѕР±РјРѕС‚РєРё --> ";
 	cin >> transform.detail.secondary_winding_terminals;
-	cout << "Газовое реле --> ";
+	cout << "Р“Р°Р·РѕРІРѕРµ СЂРµР»Рµ --> ";
 	cin >> transform.detail.gas_relay;
 
-	cout << "Масса трансформатора --> ";
+	cout << "РњР°СЃСЃР° С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂР° --> ";
 	cin >> transform.mass;
 
-	cout << "Дата приобретения:" << endl;
-	cout << "День --> "; cin >> transform.date.d;
-	cout << "Месяц --> "; cin >> transform.date.m;
-	cout << "Год --> "; cin >> transform.date.y;
+	cout << "Р”Р°С‚Р° РїСЂРёРѕР±СЂРµС‚РµРЅРёСЏ:" << endl;
+	cout << "Р”РµРЅСЊ --> "; cin >> transform.date.d;
+	cout << "РњРµСЃСЏС† --> "; cin >> transform.date.m;
+	cout << "Р“РѕРґ --> "; cin >> transform.date.y;
 
 	cin.clear();
 	while (!isspace(cin.get()))
 		continue;
 }
-// Вывод Трансформатора
+// Р’С‹РІРѕРґ РўСЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂР°
 void CoutTransform(TTransform transform)
 {
-	cout << "Название трансформатора: " << transform.name << endl
-		<< "Фирма изготовитель:" << transform.firma << endl
-		<< "\nУстановленные детали:" << endl
-		<< "Масляный бак:" << transform.detail.oil_tank << endl
-		<< "Первичная обмотка: " << transform.detail.primary_winding << endl
-		<< "Вторичная обмотка: " << transform.detail.secondary_winding << endl
-		<< "Выводы первичной обмотки: " << transform.detail.conclusions_of_the_primary_winding << endl
-		<< "Выводы вторичной обмотки: " << transform.detail.secondary_winding_terminals << endl
-		<< "Газовое реле --> " << transform.detail.gas_relay << endl
-		<< "Масса трансформатора: " << transform.mass << endl
-		<< "\nДата приобретения:" << endl
-		<< "День --> " << transform.date.d << endl
-		<< "Месяц --> " << transform.date.m << endl
-		<< "Год --> " << transform.date.y << endl;
+	cout << "РќР°Р·РІР°РЅРёРµ С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂР°: " << transform.name << endl
+		<< "Р¤РёСЂРјР° РёР·РіРѕС‚РѕРІРёС‚РµР»СЊ:" << transform.firma << endl
+		<< "\nРЈСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Рµ РґРµС‚Р°Р»Рё:" << endl
+		<< "РњР°СЃР»СЏРЅС‹Р№ Р±Р°Рє:" << transform.detail.oil_tank << endl
+		<< "РџРµСЂРІРёС‡РЅР°СЏ РѕР±РјРѕС‚РєР°: " << transform.detail.primary_winding << endl
+		<< "Р’С‚РѕСЂРёС‡РЅР°СЏ РѕР±РјРѕС‚РєР°: " << transform.detail.secondary_winding << endl
+		<< "Р’С‹РІРѕРґС‹ РїРµСЂРІРёС‡РЅРѕР№ РѕР±РјРѕС‚РєРё: " << transform.detail.conclusions_of_the_primary_winding << endl
+		<< "Р’С‹РІРѕРґС‹ РІС‚РѕСЂРёС‡РЅРѕР№ РѕР±РјРѕС‚РєРё: " << transform.detail.secondary_winding_terminals << endl
+		<< "Р“Р°Р·РѕРІРѕРµ СЂРµР»Рµ --> " << transform.detail.gas_relay << endl
+		<< "РњР°СЃСЃР° С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂР°: " << transform.mass << endl
+		<< "\nР”Р°С‚Р° РїСЂРёРѕР±СЂРµС‚РµРЅРёСЏ:" << endl
+		<< "Р”РµРЅСЊ --> " << transform.date.d << endl
+		<< "РњРµСЃСЏС† --> " << transform.date.m << endl
+		<< "Р“РѕРґ --> " << transform.date.y << endl;
 	cout << endl;
 }
-//** размер файла *****************************
+//** СЂР°Р·РјРµСЂ С„Р°Р№Р»Р° *****************************
 long filesize(FILE* f)
 {
 	long curpos, length;
 
-	curpos = ftell(f);		//запоминаем текущее положение
-	fseek(f, 0L, SEEK_END);	//перемещаем на конец файла
-	length = ftell(f);		//запоминаем положение в конце файла
-	fseek(f, curpos, SEEK_SET);	//перемещаем на старое положение
+	curpos = ftell(f);		//Р·Р°РїРѕРјРёРЅР°РµРј С‚РµРєСѓС‰РµРµ РїРѕР»РѕР¶РµРЅРёРµ
+	fseek(f, 0L, SEEK_END);	//РїРµСЂРµРјРµС‰Р°РµРј РЅР° РєРѕРЅРµС† С„Р°Р№Р»Р°
+	length = ftell(f);		//Р·Р°РїРѕРјРёРЅР°РµРј РїРѕР»РѕР¶РµРЅРёРµ РІ РєРѕРЅС†Рµ С„Р°Р№Р»Р°
+	fseek(f, curpos, SEEK_SET);	//РїРµСЂРµРјРµС‰Р°РµРј РЅР° СЃС‚Р°СЂРѕРµ РїРѕР»РѕР¶РµРЅРёРµ
 	return length;
 }
 int main()
 {
 	setlocale(LC_ALL, "rus");
 	int N;
-	//	cout << "Введите количество трансформаторов для записи в базу данных --> ";
+	//	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂРѕРІ РґР»СЏ Р·Р°РїРёСЃРё РІ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… --> ";
 	//	cin >> N;
 	//	
-	//	cin.clear(); //очистить поток и затем выставить позиционирование в 0
+	//	cin.clear(); //РѕС‡РёСЃС‚РёС‚СЊ РїРѕС‚РѕРє Рё Р·Р°С‚РµРј РІС‹СЃС‚Р°РІРёС‚СЊ РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ РІ 0
 	//	while (!isspace(cin.get()))
-	//    	continue;            //Избавиться от результатов неверного ввода
+	//    	continue;            //РР·Р±Р°РІРёС‚СЊСЃСЏ РѕС‚ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РЅРµРІРµСЂРЅРѕРіРѕ РІРІРѕРґР°
 
 	TTransform transform;
 
-	cout << "Пример работы со структурой" << endl;
+	cout << "РџСЂРёРјРµСЂ СЂР°Р±РѕС‚С‹ СЃРѕ СЃС‚СЂСѓРєС‚СѓСЂРѕР№" << endl;
 
-	FILE* f, * g; // описание файловой переменной
+	FILE* f, * g; // РѕРїРёСЃР°РЅРёРµ С„Р°Р№Р»РѕРІРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№
 	f = fopen("Transform.txt", "a");	// w, r, a, w+, r+, wt, rt, wb, rb 
 
 	//.....
 	//fclose(f);
 
-//	cout << "Ввод данных о трансформаторе:"<< endl;
+//	cout << "Р’РІРѕРґ РґР°РЅРЅС‹С… Рѕ С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂРµ:"<< endl;
 //	
 //	for (int i = 0; i < N; i++)
 //	{
-//		cout << i+1 << " трансформатор:\n";
+//		cout << i+1 << " С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂ:\n";
 //		CinTransform(transform);
 //		fwrite(&transform, sizeof(transform), 1, f);
 //	}
@@ -129,58 +129,58 @@ int main()
 
 	//system("cls");
 
-	long n = filesize(f);	//Размер файла Transform.txt
-	N = n / sizeof(TTransform); // Количество записей в файле
-	cout << "Размер файла Transform.txt --> " << n << " байт" << endl
-		<< "Размер структуры Transform --> " << sizeof(TTransform) << " байт" << endl
-		<< "Количество записей в файле --> " << N << endl;
+	long n = filesize(f);	//Р Р°Р·РјРµСЂ С„Р°Р№Р»Р° Transform.txt
+	N = n / sizeof(TTransform); // РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№ РІ С„Р°Р№Р»Рµ
+	cout << "Р Р°Р·РјРµСЂ С„Р°Р№Р»Р° Transform.txt --> " << n << " Р±Р°Р№С‚" << endl
+		<< "Р Р°Р·РјРµСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹ Transform --> " << sizeof(TTransform) << " Р±Р°Р№С‚" << endl
+		<< "РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№ РІ С„Р°Р№Р»Рµ --> " << N << endl;
 
 
 
-	cout << "\n\nВывод данных о трансформаторе:\n\n";
+	cout << "\n\nР’С‹РІРѕРґ РґР°РЅРЅС‹С… Рѕ С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂРµ:\n\n";
 	fclose(f);
 
 	TTransform* massiv = NULL;	// 4 byte
-	massiv = new TTransform[500000];	// описание динамического массива
+	massiv = new TTransform[500000];	// РѕРїРёСЃР°РЅРёРµ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РјР°СЃСЃРёРІР°
 
 	f = fopen("Transform.txt", "r");
 	//for (int i = 0; i < N; i++)
 	int i = 0;
 	while (fread(&transform, sizeof(transform), 1, f))	// !eof(f)
 	{
-		cout << i + 1 << " трансформатор:\n";
+		cout << i + 1 << " С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂ:\n";
 		massiv[i] = transform;
 		CoutTransform(massiv[i]);
 		i++;
 	}
 	fclose(f);
 
-	// Найти трансформатор с масляным баком
-	cout << "\n\n Список трансформаторов с масляным баком:\n\n";
+	// РќР°Р№С‚Рё С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂ СЃ РјР°СЃР»СЏРЅС‹Рј Р±Р°РєРѕРј
+	cout << "\n\n РЎРїРёСЃРѕРє С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂРѕРІ СЃ РјР°СЃР»СЏРЅС‹Рј Р±Р°РєРѕРј:\n\n";
 	int k = 0;
 	for (int i = 0; i < N; i++)
 	{
 		if (massiv[i].detail.oil_tank == 1)
 		{
 			k++;
-			cout << k << " Трансформатор с масляным баком" << endl;
+			cout << k << " РўСЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂ СЃ РјР°СЃР»СЏРЅС‹Рј Р±Р°РєРѕРј" << endl;
 			CoutTransform(massiv[i]);
 			cout << "****************************\n";
 		}
 	}
 
-	// Найти трансформатор купленный у некоторой фирмы
+	// РќР°Р№С‚Рё С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂ РєСѓРїР»РµРЅРЅС‹Р№ Сѓ РЅРµРєРѕС‚РѕСЂРѕР№ С„РёСЂРјС‹
 	char search_firma[22];
-	cout << "Введите название Фирмы для поиска по базе данных --> ";
+	cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р¤РёСЂРјС‹ РґР»СЏ РїРѕРёСЃРєР° РїРѕ Р±Р°Р·Рµ РґР°РЅРЅС‹С… --> ";
 	cin.getline(search_firma, 20);
-	cout << "\n\n Список трансформаторов купленных у фирмы: " << search_firma << endl;
+	cout << "\n\n РЎРїРёСЃРѕРє С‚СЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂРѕРІ РєСѓРїР»РµРЅРЅС‹С… Сѓ С„РёСЂРјС‹: " << search_firma << endl;
 	k = 0;
 	for (int i = 0; i < N; i++)
 	{
 		if (strcmp(massiv[i].firma, search_firma) == 0)
 		{
 			k++;
-			cout << k << " Трансформатор купленный у фирмы: " << search_firma << endl;
+			cout << k << " РўСЂР°РЅСЃС„РѕСЂРјР°С‚РѕСЂ РєСѓРїР»РµРЅРЅС‹Р№ Сѓ С„РёСЂРјС‹: " << search_firma << endl;
 			CoutTransform(massiv[i]);
 			cout << "****************************\n\n";
 		}
